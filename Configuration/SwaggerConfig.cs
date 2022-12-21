@@ -1,4 +1,7 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using FluentValidation.AspNetCore;
+using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Swagger;
 using System.Reflection;
 
 namespace ConsultorioLegal.Configurations
@@ -32,6 +35,7 @@ namespace ConsultorioLegal.Configurations
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
+            services.AddFluentValidationRulesToSwagger();
         }
 
         public static void UseSwaggerConfiguration(this IApplicationBuilder app)
