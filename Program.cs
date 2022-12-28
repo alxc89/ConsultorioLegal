@@ -22,6 +22,8 @@ internal class Program
 
         var app = builder.Build();
 
+        app.UseExceptionHandler("/error");
+
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
@@ -66,7 +68,7 @@ internal class Program
         var configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json")
-            .AddJsonFile($"appsettings.{ambiente}.json")
+            .AddJsonFile($"appsettings.{ambiente}.json", optional: true)
             .Build();
         return configuration;
     }

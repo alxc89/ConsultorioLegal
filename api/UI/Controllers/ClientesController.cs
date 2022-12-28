@@ -1,5 +1,6 @@
 using ConsultorioLegal.api.UI.ModelView;
 using Microsoft.AspNetCore.Mvc;
+using SerilogTimings;
 using src.api.Application.Services.Clientes.Interfaces;
 using src.api.Domain.Entities;
 
@@ -26,6 +27,7 @@ namespace src.api.UI.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Get()
         {
+            throw new Exception("Erro de teste");
             return Ok(await clienteManager.GetClientesAsync());
         }
 
@@ -51,8 +53,13 @@ namespace src.api.UI.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Post([FromBody] NovoCliente novoCliente)
         {
-            logger.LogInformation("Foi requisitada a inserção de um novo cliente.");
-            var clienteInserido = await clienteManager.InsertClienteAsync(novoCliente);
+            logger.LogInformation("Objeto recebido {@novoCliente}", novoCliente);
+            Cliente clienteInserido;
+            using (Operation.Time("Tempo de adição de um novo cliente."))
+            {
+                logger.LogInformation("Foi requisitada a inserção de um novo cliente.");
+                clienteInserido = await clienteManager.InsertClienteAsync(novoCliente);
+            }
             return CreatedAtAction(nameof(Get), new { id = clienteInserido.Id }, clienteInserido);
         }
 
