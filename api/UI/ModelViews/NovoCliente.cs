@@ -1,4 +1,6 @@
-﻿namespace ConsultorioLegal.api.UI.ModelView
+﻿using src.api.Domain.Entities;
+
+namespace ConsultorioLegal.api.UI.ModelView
 {
     /// <summary>
     /// Objeto utilizado para inserção de um novo cliente.
@@ -21,14 +23,11 @@
         /// <example>M</example>
         public char Sexo { get; set; }
         /// <summary>
-        /// Telefone do cliente.
-        /// </summary>
-        /// <example>17-999990000</example>
-        public string Telefone { get; set; }
-        /// <summary>
         /// Documento do cliente: CNH, CPF ou RG
         /// </summary>
         /// <example>1232233422</example>
         public string Documento { get; set; }
+        public NovoEndereco Endereco { get; set; }
+        public ICollection<NovoTelefone> Telefones { get; set; }
     }
 }

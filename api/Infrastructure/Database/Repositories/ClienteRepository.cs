@@ -15,12 +15,20 @@ namespace src.api.Infrastructure.Database.Repositories
 
         public async Task<IEnumerable<Cliente>> GetClientesAsync()
         {
-            return await context.Clientes.AsNoTracking().ToListAsync();
+            return await context.Clientes
+                .Include(x => x.Endereco)
+                .Include(x => x.Telefones)
+                .AsNoTracking()
+                .ToListAsync();
         }
 
         public async Task<Cliente> GetClienteByIdAsync(int id)
         {
-            return await context.Clientes.FindAsync(id);
+            return await context
+                .Clientes
+                .Include(x => x.Endereco)
+                .Include(x => x.Telefones)
+                .SingleOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<Cliente> InsertClienteAsync(Cliente cliente)
@@ -37,7 +45,7 @@ namespace src.api.Infrastructure.Database.Repositories
             {
                 return null;
             }
-            
+
             context.Entry(clienteConsultado).CurrentValues.SetValues(cliente);
             await context.SaveChangesAsync();
             return clienteConsultado;

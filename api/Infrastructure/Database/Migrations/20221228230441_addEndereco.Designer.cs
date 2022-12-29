@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using src.api.Infrastructure.Database.Context;
 
@@ -10,9 +11,10 @@ using src.api.Infrastructure.Database.Context;
 namespace ConsultorioLegal.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20221228230441_addEndereco")]
+    partial class addEndereco
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
@@ -42,6 +44,11 @@ namespace ConsultorioLegal.Migrations
                     b.Property<char>("Sexo")
                         .HasMaxLength(1)
                         .HasColumnType("char");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar");
 
                     b.Property<DateTime?>("UltimaAlteracao")
                         .HasColumnType("TEXT");
@@ -81,19 +88,6 @@ namespace ConsultorioLegal.Migrations
                     b.ToTable("Enderecos");
                 });
 
-            modelBuilder.Entity("src.api.Domain.Entities.Telefone", b =>
-                {
-                    b.Property<int>("ClienteId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Numero")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ClienteId", "Numero");
-
-                    b.ToTable("Telefones");
-                });
-
             modelBuilder.Entity("src.api.Domain.Entities.Endereco", b =>
                 {
                     b.HasOne("src.api.Domain.Entities.Cliente", "Cliente")
@@ -105,22 +99,9 @@ namespace ConsultorioLegal.Migrations
                     b.Navigation("Cliente");
                 });
 
-            modelBuilder.Entity("src.api.Domain.Entities.Telefone", b =>
-                {
-                    b.HasOne("src.api.Domain.Entities.Cliente", "Cliente")
-                        .WithMany("Telefones")
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cliente");
-                });
-
             modelBuilder.Entity("src.api.Domain.Entities.Cliente", b =>
                 {
                     b.Navigation("Endereco");
-
-                    b.Navigation("Telefones");
                 });
 #pragma warning restore 612, 618
         }
