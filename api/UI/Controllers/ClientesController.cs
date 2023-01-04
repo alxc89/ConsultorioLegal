@@ -1,7 +1,7 @@
-using ConsultorioLegal.api.UI.ModelView;
+using ConsultorioLegal.api.Application.Services.Interfaces.Clientes;
+using ConsultorioLegal.api.UI.ModelViews.Cliente;
 using Microsoft.AspNetCore.Mvc;
 using SerilogTimings;
-using src.api.Application.Services.Clientes.Interfaces;
 using src.api.Domain.Entities;
 
 namespace src.api.UI.Controllers

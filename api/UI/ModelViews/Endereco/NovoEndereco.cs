@@ -1,6 +1,6 @@
 ﻿using src.api.Domain.Entities;
 
-namespace ConsultorioLegal.api.UI.ModelView
+namespace ConsultorioLegal.api.UI.ModelViews.Endereco
 {
     public class NovoEndereco
     {

@@ -1,4 +1,4 @@
-﻿using ConsultorioLegal.api.UI.ModelView;
+﻿using ConsultorioLegal.api.UI.ModelViews.Telefone;
 using FluentValidation;
 
 namespace ConsultorioLegal.api.Application.Services.Validator

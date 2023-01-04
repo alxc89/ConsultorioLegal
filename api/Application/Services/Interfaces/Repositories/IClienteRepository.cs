@@ -1,6 +1,6 @@
 using src.api.Domain.Entities;
 
-namespace src.api.Application.Services.Clientes
+namespace ConsultorioLegal.api.Application.Services.Interfaces.Repositories
 {
     public interface IClienteRepository
     {

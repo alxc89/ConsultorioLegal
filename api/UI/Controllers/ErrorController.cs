@@ -1,4 +1,4 @@
-﻿using ConsultorioLegal.api.UI.ModelViews;
+﻿using ConsultorioLegal.api.UI.ModelViews.Erro;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;

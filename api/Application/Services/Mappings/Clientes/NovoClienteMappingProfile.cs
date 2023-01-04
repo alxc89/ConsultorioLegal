@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
-using ConsultorioLegal.api.UI.ModelView;
+using ConsultorioLegal.api.UI.ModelViews.Cliente;
+using ConsultorioLegal.api.UI.ModelViews.Endereco;
+using ConsultorioLegal.api.UI.ModelViews.Telefone;
 using src.api.Domain.Entities;
 
-namespace ConsultorioLegal.api.Application.Services.Mappings
+namespace ConsultorioLegal.api.Application.Services.Mappings.Clientes
 {
     public class NovoClienteMappingProfile : Profile
     {

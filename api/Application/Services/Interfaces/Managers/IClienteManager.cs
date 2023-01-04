@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ConsultorioLegal.api.UI.ModelView;
+using ConsultorioLegal.api.UI.ModelViews.Cliente;
 using src.api.Domain.Entities;
 
-namespace src.api.Application.Services.Clientes.Interfaces
+namespace ConsultorioLegal.api.Application.Services.Interfaces.Clientes
 {
     public interface IClienteManager
     {

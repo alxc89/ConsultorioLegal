@@ -12,7 +12,7 @@ namespace ConsultorioLegal.api.Infrastructure.Database.Configuration
             builder.Property(c => c.Nome).IsRequired().HasColumnType("varchar").HasMaxLength(150);
             builder.Property(c => c.DataNascimento).IsRequired();
             builder.Property(c => c.Documento).IsRequired().HasColumnType("varchar").HasMaxLength(14);
-            builder.Property(c => c.Sexo).IsRequired().HasColumnType("char").HasMaxLength(1);
+            builder.Property(c => c.Sexo).IsRequired().HasConversion(x => x.ToString(), x => (Sexo)Enum.Parse(typeof(Sexo), x));
 
             builder.HasIndex(c => new { c.Id, c.Nome });
         }

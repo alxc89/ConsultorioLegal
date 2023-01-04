@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using src.api.Infrastructure.Database.Context;
 
@@ -10,9 +11,10 @@ using src.api.Infrastructure.Database.Context;
 namespace ConsultorioLegal.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20221229201819_addDtCriacaoEDtAlteracaoMedicoEEspecialidade")]
+    partial class addDtCriacaoEDtAlteracaoMedicoEEspecialidade
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
@@ -97,9 +99,9 @@ namespace ConsultorioLegal.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("varchar");
 
-                    b.Property<string>("Sexo")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<char>("Sexo")
+                        .HasMaxLength(1)
+                        .HasColumnType("char");
 
                     b.Property<DateTime?>("UltimaAlteracao")
                         .HasColumnType("TEXT");

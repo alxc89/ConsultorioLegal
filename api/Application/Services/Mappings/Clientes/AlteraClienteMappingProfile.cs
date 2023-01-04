@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using ConsultorioLegal.api.UI.ModelView;
+using ConsultorioLegal.api.UI.ModelViews.Cliente;
 using src.api.Domain.Entities;
 
-namespace ConsultorioLegal.api.Application.Services.Mappings
+namespace ConsultorioLegal.api.Application.Services.Mappings.Clientes
 {
     public class AlteraClienteMappingProfile : Profile
     {

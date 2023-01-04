@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using ConsultorioLegal.api.UI.ModelView;
-using src.api.Application.Services.Clientes.Interfaces;
+using ConsultorioLegal.api.Application.Services.Interfaces.Clientes;
+using ConsultorioLegal.api.Application.Services.Interfaces.Repositories;
+using ConsultorioLegal.api.UI.ModelViews.Cliente;
 using src.api.Domain.Entities;
 
 namespace src.api.Application.Services.Clientes.Implementation

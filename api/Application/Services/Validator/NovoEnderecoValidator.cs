@@ -1,4 +1,4 @@
-﻿using ConsultorioLegal.api.UI.ModelView;
+﻿using ConsultorioLegal.api.UI.ModelViews.Endereco;
 using FluentValidation;
 
 namespace ConsultorioLegal.api.Application.Services.Validator

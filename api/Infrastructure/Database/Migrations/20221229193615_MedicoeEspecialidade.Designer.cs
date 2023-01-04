@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using src.api.Infrastructure.Database.Context;
 
@@ -10,9 +11,10 @@ using src.api.Infrastructure.Database.Context;
 namespace ConsultorioLegal.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20221229193615_MedicoeEspecialidade")]
+    partial class MedicoeEspecialidade
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
@@ -23,13 +25,7 @@ namespace ConsultorioLegal.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Criacao")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Descricao")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime?>("UltimaAlteracao")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -46,13 +42,7 @@ namespace ConsultorioLegal.Migrations
                     b.Property<int>("CRM")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Criacao")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Nome")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime?>("UltimaAlteracao")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -97,9 +87,9 @@ namespace ConsultorioLegal.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("varchar");
 
-                    b.Property<string>("Sexo")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<char>("Sexo")
+                        .HasMaxLength(1)
+                        .HasColumnType("char");
 
                     b.Property<DateTime?>("UltimaAlteracao")
                         .HasColumnType("TEXT");

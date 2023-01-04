@@ -1,5 +1,5 @@
 using ConsultorioLegal.api.Application.Services.Validator;
-using ConsultorioLegal.api.UI.ModelView;
+using ConsultorioLegal.api.UI.ModelViews.Cliente;
 using FluentValidation;
 using src.api.Domain.Entities;
 
@@ -14,13 +14,8 @@ namespace src.api.Application.Services.Validator
                             .GreaterThan(DateTime.Now.AddYears(-130));
             RuleFor(x => x.Documento).NotNull().NotEmpty().MinimumLength(4).MaximumLength(14);
             RuleFor(x => x.Telefones).NotNull().NotEmpty();
-            RuleFor(x => x.Sexo).NotNull().NotEmpty().Must(IsMorF).WithMessage("Sexo precisa ser M ou F");
+            RuleFor(x => x.Sexo).NotNull();
             RuleFor(x => x.Endereco).SetValidator(new NovoEnderecoValidator());
-        }
-
-        private bool IsMorF(char sexo)
-        {
-            return sexo == 'M' || sexo == 'F';
         }
     }
 }

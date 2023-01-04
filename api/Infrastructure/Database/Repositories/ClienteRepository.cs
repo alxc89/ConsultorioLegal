@@ -1,5 +1,5 @@
+using ConsultorioLegal.api.Application.Services.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
-using src.api.Application.Services.Clientes;
 using src.api.Domain.Entities;
 using src.api.Infrastructure.Database.Context;
 

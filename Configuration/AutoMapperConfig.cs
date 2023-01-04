@@ -1,4 +1,5 @@
-﻿using ConsultorioLegal.api.Application.Services.Mappings;
+﻿using ConsultorioLegal.api.Application.Services.Mappings.Clientes;
+using ConsultorioLegal.api.Application.Services.Mappings.Medicos;
 
 namespace ConsultorioLegal.Configuration
 {
@@ -6,7 +7,10 @@ namespace ConsultorioLegal.Configuration
     {
         public static void AddAutoMapperConfiguration(this IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(NovoClienteMappingProfile), typeof(AlteraClienteMappingProfile));
+            services.AddAutoMapper(
+                typeof(NovoClienteMappingProfile), 
+                typeof(AlteraClienteMappingProfile),
+                typeof(NovoMedicoMappingProfile));
         }
     }
 }

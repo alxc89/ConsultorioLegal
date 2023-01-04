@@ -1,4 +1,4 @@
-﻿namespace ConsultorioLegal.api.UI.ModelView
+﻿namespace ConsultorioLegal.api.UI.ModelViews.Telefone
 {
     public class NovoTelefone
     {

@@ -1,4 +1,4 @@
-﻿namespace ConsultorioLegal.api.UI.ModelViews
+﻿namespace ConsultorioLegal.api.UI.ModelViews.Erro
 {
     public class ErrorResponse
     {

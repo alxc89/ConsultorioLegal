@@ -1,6 +1,7 @@
-﻿using src.api.Domain.Entities;
+﻿using ConsultorioLegal.api.UI.ModelViews.Endereco;
+using ConsultorioLegal.api.UI.ModelViews.Telefone;
 
-namespace ConsultorioLegal.api.UI.ModelView
+namespace ConsultorioLegal.api.UI.ModelViews.Cliente
 {
     /// <summary>
     /// Objeto utilizado para inserção de um novo cliente.
